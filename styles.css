@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+/* RESET */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 1.2rem = 12px */
+
+html {
+  font-size: 10px;
+}
+
+/*  VARIABLES */
+
+:root {
+  /* COLORS */
+  --very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --soft-red: hsl(14, 88%, 65%);
+  --soft-violet: hsl(273, 75%, 66%);
+  --soft-blue: hsl(240, 73%, 65%);
+  --very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --dark-grayish-blue: hsl(240, 6%, 50%);
+  --light-grayish-blue: hsl(240, 5%, 91%);
+  --shadow: hsla(237, 12%, 33%, 0.8);
+
+  /* FONT SIZE */
+  --default: 1.3rem;
+  --faq-link: 1.4rem;
+  --title: 3rem;
+
+  /* STYLES */
+  --border-radius: 2rem;
+  --box-shadow: 0px 5px 40px 8px var(--shadow);
+}
+
+/*  GENERAL */
+
+body {
+  font-size: var(--default);
+  font-family: "Kumbh Sans", sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(var(--soft-violet), var(--soft-blue));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+  border-bottom: 1px solid var(--dark-grayish-blue);
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+/* MOBILE FIRST WORKFLOW */
+
+/* hidden on mobile */
+.img-container {
+  display: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 33.5rem;
+  background-color: var(--light-grayish-blue);
+  border-radius: var(--border-radius);
+  position: relative;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+/* pseudo element after to show images only on mobile device*/
+.container::after {
+  display: block;
+  position: absolute;
+  width: 70%;
+  height: 21rem;
+  top: 0;
+  left: 0;
+  content: url(/images/illustration-woman-online-mobile.svg);
+  transform: translate(20%, -52%);
+  background-image: url(/images/bg-pattern-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+
+.faq {
+  padding: 5rem 2.5rem;
+}
+
+.faq__title {
+  text-align: center;
+  padding: 2.5rem 0;
+  margin-top: 6rem;
+  font-weight: 700;
+  font-size: var(--title);
+  color: var(--very-dark-desaturated-blue);
+}
+
+.faq__nav {
+  padding: 1.5rem 0;
+}
+
+.faq__link {
+  color: var(--very-dark-desaturated-blue);
+  font-weight: 400;
+  font-size: var(--faq-link);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq__description {
+  display: none;
+}
+
+/* ACTIVE STATE */
+
+.faq__nav.active .faq__link {
+  font-weight: 700;
+}
+
+.faq__nav.active .faq__description {
+  display: block;
+  padding-top: 0.8rem;
+  color: var(--dark-grayish-blue);
+  line-height: 1.9rem;
+}
+
+.faq__nav.active .arrow-down {
+  transform: rotateX(180deg);
+}
+
+/* DESKTOP WORKFLOW */
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 98.4rem;
+    height: 55rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  /* showing image with div only on desktop */
+  .img-container {
+    display: flex;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-60%, -31%);
+  }
+
+  .illustration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-17%, 20%);
+  }
+
+  .faq {
+    width: 50%;
+    padding: 6rem 9rem 9rem 0;
+  }
+
+  .faq__title {
+    margin-top: initial;
+    padding: 0 0 2rem 0;
+    text-align: left;
+  }
+
+  /* before pseudo element only on desktop to show image box */
+  .container::before {
+    content: url(/images/illustration-box-desktop.svg);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-48%, -36%);
+    z-index: 1;
+  }
+
+  .container::after {
+    display: none;
+  }
+
+  .faq__link:hover {
+    color: var(--soft-red);
+    transition: .3s;
+  }
+
+  .faq__nav.active .faq__link:hover {
+    color: initial;
+  }
+  
+}
