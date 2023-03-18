@@ -91,9 +91,9 @@ img {
   height: 21rem;
   top: 0;
   left: 0;
-  content: url(./images/illustration-woman-online-mobile.svg);
+  content: url("./images/illustration-woman-online-mobile.svg");
   transform: translate(20%, -52%);
-  background-image: url(./images/bg-pattern-mobile.svg);
+  background-image: url("./images/bg-pattern-mobile.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom;
@@ -194,7 +194,7 @@ img {
 
   /* before pseudo element only on desktop to show image box */
   .container::before {
-    content: url(./images/illustration-box-desktop.svg);
+    content: url("./images/illustration-box-desktop.svg");
     position: absolute;
     top: 50%;
     left: 0;
