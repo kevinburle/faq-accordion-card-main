@@ -1,4 +1,4 @@
-- Live Site URL: [here](https://kevinburle.github.io/news-homepage/)
+- Live Site URL: [here](https://kevinburle.github.io/faq-accordion-main/)
 
 # Frontend Mentor - FAQ accordion card solution
 
